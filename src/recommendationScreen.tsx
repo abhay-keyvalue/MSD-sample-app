@@ -19,6 +19,8 @@ const RecommendationScreen = () => {
     getRecommendationByModule,
     getRecommendationByPage,
   } = useRecommendations();
+
+  const pageCorrelationId = '8504354e-3801-49a3-8200-5681e769fa67';
   const getRecommendationPage = () => {
     const requestParams = {
       catalogs: {
@@ -36,7 +38,7 @@ const RecommendationScreen = () => {
         },
       },
     };
-    getRecommendationByPage('PDP', requestParams);
+    getRecommendationByPage('PDP', requestParams, pageCorrelationId);
   };
 
   const getRecommendationModule = () => {
@@ -56,7 +58,7 @@ const RecommendationScreen = () => {
         },
       },
     };
-    getRecommendationByModule('Similar Products', requestParams);
+    getRecommendationByModule('Similar Products', requestParams, pageCorrelationId);
   };
 
   const getRecommendationStrategy = () => {
@@ -76,7 +78,7 @@ const RecommendationScreen = () => {
         },
       },
     };
-    getRecommendationByStrategy('PDP - SP', requestParams);
+    getRecommendationByStrategy('PDP - SP', requestParams, pageCorrelationId);
   };
 
   const renderRecommendations = () => {

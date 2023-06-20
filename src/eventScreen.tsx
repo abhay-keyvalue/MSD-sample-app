@@ -7,6 +7,7 @@ import ButtonPrimary from './buttonPrimary';
 const EventScreen = () => {
   const {discoverEvents} = useDiscoverEvents();
   const {track} = useEvents();
+  const pageCorrelationId = '3a93346b-6236-4fb6-8a40-4301f9c78533';
 
   const discover = () => {
     discoverEvents();
@@ -16,7 +17,8 @@ const EventScreen = () => {
       page_type: 'pdp',
       page_name: 'PDP',
       source_prodid: '39596296700022',
-    });
+    },
+    pageCorrelationId );
   };
 
   const track2 = () => {
@@ -24,7 +26,8 @@ const EventScreen = () => {
       page_type: 'pdp',
       page_name: 'PDP',
       source_prodid: '39596296700022',
-    });
+    },
+    pageCorrelationId);
   };
 
   const track3 = () => {
@@ -34,7 +37,9 @@ const EventScreen = () => {
       source_prodid: '39596296700022',
       epoch: 100,
       slot_id: '1',
-    });
+    },
+    pageCorrelationId
+    );
   };
 
   return (
