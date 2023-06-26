@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import {
   ActivityIndicator,
   Image,
@@ -62,7 +62,7 @@ const RecommendationScreen = () => {
   const getRecommendationStrategy = () => {
     const requestParams = {
       "catalogs": {
-        "d18edb1c46": {
+        "159a4c3458": {
             "fields": [
                 "title",
                 "price",
@@ -75,10 +75,10 @@ const RecommendationScreen = () => {
         }
     }
     };
-    getRecommendationByStrategy('PDP - SP', requestParams, pageCorrelationId);
+    getRecommendationByStrategy('Similar Products', requestParams, pageCorrelationId);
   };
 
-  const renderRecommendations = () => {
+  const renderRecommendations = useMemo(() => {
     return (
       <ScrollView horizontal>
         {recommendations?.data?.length > 0 &&
@@ -100,7 +100,7 @@ const RecommendationScreen = () => {
           ))}
       </ScrollView>
     );
-  };
+  }, [recommendations]);
 
   const renderLoader = () => {
     return (
@@ -128,7 +128,7 @@ const RecommendationScreen = () => {
           onPress={getRecommendationStrategy}
           buttonText={'Get getRecommendation by strategy'}
         />
-        {renderRecommendations()}
+        {renderRecommendations}
       </ScrollView>
     </SafeAreaView>
   );
