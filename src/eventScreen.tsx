@@ -23,9 +23,12 @@ const EventScreen = () => {
 
   const track2 = () => {
     track('Buy', {
-      page_type: 'pdp',
-      page_name: 'PDP',
+      page_type: 'oc',
+      page_name: 'Order Confirmation',
       source_prodid: '39596296700022',
+      price: [150.5],
+      quantity: [2],
+      product_id: ['39596296700022'],
     },
     pageCorrelationId);
   };
