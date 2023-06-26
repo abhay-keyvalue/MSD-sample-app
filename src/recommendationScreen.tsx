@@ -23,60 +23,57 @@ const RecommendationScreen = () => {
   const pageCorrelationId = '8504354e-3801-49a3-8200-5681e769fa67';
   const getRecommendationPage = () => {
     const requestParams = {
-      catalogs: {
-        d18edb1c46: {
-          fields: ['title', 'price', 'image_link', 'link'],
-          context: {
-            variant_id: '39596296700022',
-          },
-        },
-        d18edb1c47: {
-          fields: ['title', 'price', 'image_link', 'link'],
-          context: {
-            variant_id: '39596296700022',
-          },
-        },
-      },
+    "catalogs": {
+        "159a4c3458": {
+            "fields": [
+                "title",
+                "price",
+                "image_link",
+                "link"
+            ],
+            "context": {
+                "variant_id": "39596296700022"
+            }
+        }
+    }
     };
     getRecommendationByPage('PDP', requestParams, pageCorrelationId);
   };
 
   const getRecommendationModule = () => {
     const requestParams = {
-      catalogs: {
-        d18edb1c46: {
-          fields: ['title', 'price', 'image_link', 'link'],
-          context: {
-            variant_id: '39596296700022',
-          },
-        },
-        d18edb1c47: {
-          fields: ['title', 'price', 'image_link', 'link'],
-          context: {
-            variant_id: '39596296700022',
-          },
-        },
-      },
+      "catalogs": {
+        "159a4c3458": {
+            "fields": [
+                "title",
+                "price",
+                "image_link",
+                "link"
+            ],
+            "context": {
+                "variant_id": "39596296700022"
+            }
+        }
+    }
     };
-    getRecommendationByModule('Similar Products', requestParams, pageCorrelationId);
+    getRecommendationByModule('Similar Products Module', requestParams, pageCorrelationId);
   };
 
   const getRecommendationStrategy = () => {
     const requestParams = {
-      catalogs: {
-        d18edb1c46: {
-          fields: ['title', 'price', 'image_link', 'link'],
-          context: {
-            variant_id: '39596296700022',
-          },
-        },
-        d18edb1c47: {
-          fields: ['title', 'price', 'image_link', 'link'],
-          context: {
-            variant_id: '39596296700022',
-          },
-        },
-      },
+      "catalogs": {
+        "d18edb1c46": {
+            "fields": [
+                "title",
+                "price",
+                "image_link",
+                "link"
+            ],
+            "context": {
+                "variant_id": "39596296700022"
+            }
+        }
+    }
     };
     getRecommendationByStrategy('PDP - SP', requestParams, pageCorrelationId);
   };
@@ -86,7 +83,7 @@ const RecommendationScreen = () => {
       <ScrollView horizontal>
         {recommendations?.data?.length > 0 &&
           recommendations?.data[0].data?.map((item: any) => (
-            <View key={item?.title} style={styles.productCard}>
+            <View key={item?.variant_id} style={styles.productCard}>
               <View>
                 <Image
                   style={styles.productImage}

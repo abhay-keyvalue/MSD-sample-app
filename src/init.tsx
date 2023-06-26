@@ -8,7 +8,7 @@ import ButtonPrimary from './buttonPrimary';
 const Init = () => {
   const navigation = useNavigation();
 
-  const [apiToken, setApiToken] = useState('7d3b79cc7d58475dac101e855fae24b5');
+  const [apiToken, setApiToken] = useState('cccf83437fe347cf8a79d2fa4f85fe94');
   const [baseUrl, setBaseUrl] = useState(
     'https://api-uat.madstreetden.xyz/api/v1',
   );
