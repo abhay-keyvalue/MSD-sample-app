@@ -24,7 +24,7 @@ const RecommendationScreen = () => {
   const getRecommendationPage = () => {
     const requestParams = {
     "catalogs": {
-        "159a4c3458": {
+        "427e26dbfa": {
             "fields": [
                 "title",
                 "price",
@@ -43,7 +43,7 @@ const RecommendationScreen = () => {
   const getRecommendationModule = () => {
     const requestParams = {
       "catalogs": {
-        "159a4c3458": {
+        "427e26dbfa": {
             "fields": [
                 "title",
                 "price",
@@ -56,13 +56,13 @@ const RecommendationScreen = () => {
         }
     }
     };
-    getRecommendationByModule('Similar Products Module', requestParams, pageCorrelationId);
+    getRecommendationByModule('Similar Products Module - 27 June', requestParams, pageCorrelationId);
   };
 
   const getRecommendationStrategy = () => {
     const requestParams = {
       "catalogs": {
-        "159a4c3458": {
+        "427e26dbfa": {
             "fields": [
                 "title",
                 "price",
@@ -75,7 +75,7 @@ const RecommendationScreen = () => {
         }
     }
     };
-    getRecommendationByStrategy('Similar Products', requestParams, pageCorrelationId);
+    getRecommendationByStrategy('Similar Products - 27June', requestParams, pageCorrelationId);
   };
 
   const renderRecommendations = useMemo(() => {
