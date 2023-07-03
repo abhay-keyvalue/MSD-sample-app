@@ -8,7 +8,7 @@ import {
   Text,
   View,
 } from 'react-native';
-import {useRecommendations} from 'sample-sdk-7000';
+import {useRecommendations} from 'react-native-msd';
 
 import ButtonPrimary from './buttonPrimary';
 

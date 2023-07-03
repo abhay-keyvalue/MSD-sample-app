@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {SafeAreaView, StyleSheet, Text, TextInput, View} from 'react-native';
-import {init, setUser} from 'sample-sdk-7000';
+import {init, setUser} from 'react-native-msd';
 
 import ButtonPrimary from './buttonPrimary';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import {SafeAreaView, ScrollView, StyleSheet} from 'react-native';
-import {useEvents, useDiscoverEvents} from 'sample-sdk-7000';
+import {useEvents, useDiscoverEvents} from 'react-native-msd';
 
 import ButtonPrimary from './buttonPrimary';
 
