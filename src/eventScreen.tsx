@@ -13,7 +13,7 @@ const EventScreen = () => {
     discoverEvents();
   };
   const track1 = () => {
-    track('Product_PageView', {
+    track('PageView', {
       page_type: 'pdp',
       page_name: 'PDP',
       source_prodid: '39596296700022',
@@ -26,7 +26,9 @@ const EventScreen = () => {
       page_type: 'oc',
       page_name: 'Order Confirmation',
       source_prodid: '39596296700022',
-      price: [150.5],
+      price: [
+        '125.00'
+    ],
       quantity: [2],
       product_id: ['39596296700022'],
     },
@@ -53,7 +55,6 @@ const EventScreen = () => {
         <ButtonPrimary onPress={discover} buttonText={'Discover'} />
         <ButtonPrimary onPress={track1} buttonText={'Page View'} />
         <ButtonPrimary onPress={track2} buttonText={'Buy'} />
-        <ButtonPrimary onPress={track3} buttonText={'Right Swipe'} />
       </ScrollView>
     </SafeAreaView>
   );
