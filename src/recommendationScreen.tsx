@@ -24,7 +24,7 @@ const RecommendationScreen = () => {
   const getRecommendationPage = () => {
     const requestParams = {
     "catalogs": {
-        "427e26dbfa": {
+        "3089e3d3ba": {
             "fields": [
                 "title",
                 "price",
