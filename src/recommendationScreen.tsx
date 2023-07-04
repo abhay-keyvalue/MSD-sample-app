@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import {
   ActivityIndicator,
   Image,
@@ -78,11 +78,11 @@ const RecommendationScreen = () => {
     getRecommendationByStrategy('Similar Products - 27June', requestParams, pageCorrelationId);
   };
 
-  const renderRecommendations = useMemo(() => {
+  const renderRecommendations = useCallback((recommendationsData) => {
     return (
       <ScrollView horizontal>
-        {recommendations?.data?.length > 0 &&
-          recommendations?.data[0].data?.map((item: any) => (
+        {recommendationsData?.length > 0 &&
+          recommendationsData[0].data?.map((item: any) => (
             <View key={item?.variant_id} style={styles.productCard}>
               <View>
                 <Image
@@ -104,15 +104,12 @@ const RecommendationScreen = () => {
 
   const renderLoader = () => {
     return (
-      <View style={styles.loaderContainer}>
         <ActivityIndicator size={'large'} />
-      </View>
     );
   };
 
   return (
     <SafeAreaView style={styles.backgroundStyle}>
-      {recommendations.isLoading && renderLoader()}
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={styles.backgroundStyle}>
@@ -120,15 +117,20 @@ const RecommendationScreen = () => {
           onPress={getRecommendationPage}
           buttonText={'Get getRecommendation by page'}
         />
+        {recommendations.isLoading.isRecommendationsByPageLoading && renderLoader()}
+        {renderRecommendations(recommendations?.data?.recommendationsByPage)}
         <ButtonPrimary
           onPress={getRecommendationModule}
           buttonText={'Get getRecommendation by module'}
         />
+        {recommendations.isLoading.isRecommendationsByModuleLoading && renderLoader()}
+        {renderRecommendations(recommendations?.data?.recommendationsByModule)}
         <ButtonPrimary
           onPress={getRecommendationStrategy}
           buttonText={'Get getRecommendation by strategy'}
         />
-        {renderRecommendations}
+        {recommendations.isLoading.isRecommendationsByStrategyLoading && renderLoader()}
+        {renderRecommendations(recommendations?.data?.recommendationsByStrategy)}
       </ScrollView>
     </SafeAreaView>
   );
@@ -176,17 +178,6 @@ const styles = StyleSheet.create({
     height: 200,
     borderRadius: 3,
   },
-  loaderContainer: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    zIndex: 2,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'rgba(0,0,0,0.4)',
-  },
   input: {
     marginBottom: 16,
     padding: 8,
@@ -196,3 +187,4 @@ const styles = StyleSheet.create({
 });
 
 export default RecommendationScreen;
+
