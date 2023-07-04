@@ -104,15 +104,12 @@ const RecommendationScreen = () => {
 
   const renderLoader = () => {
     return (
-      <View style={styles.loaderContainer}>
         <ActivityIndicator size={'large'} />
-      </View>
     );
   };
 
   return (
     <SafeAreaView style={styles.backgroundStyle}>
-      {recommendations.isLoading && renderLoader()}
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={styles.backgroundStyle}>
@@ -120,16 +117,19 @@ const RecommendationScreen = () => {
           onPress={getRecommendationPage}
           buttonText={'Get getRecommendation by page'}
         />
+        {recommendations.isLoading.isRecommendationsByPageLoading && renderLoader()}
         {renderRecommendations(recommendations?.data?.recommendationsByPage)}
         <ButtonPrimary
           onPress={getRecommendationModule}
           buttonText={'Get getRecommendation by module'}
         />
+        {recommendations.isLoading.isRecommendationsByModuleLoading && renderLoader()}
         {renderRecommendations(recommendations?.data?.recommendationsByModule)}
         <ButtonPrimary
           onPress={getRecommendationStrategy}
           buttonText={'Get getRecommendation by strategy'}
         />
+        {recommendations.isLoading.isRecommendationsByStrategyLoading && renderLoader()}
         {renderRecommendations(recommendations?.data?.recommendationsByStrategy)}
       </ScrollView>
     </SafeAreaView>
@@ -177,17 +177,6 @@ const styles = StyleSheet.create({
     width: 150,
     height: 200,
     borderRadius: 3,
-  },
-  loaderContainer: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    zIndex: 2,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'rgba(0,0,0,0.4)',
   },
   input: {
     marginBottom: 16,
