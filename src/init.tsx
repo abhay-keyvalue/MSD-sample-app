@@ -41,6 +41,7 @@ const Init = () => {
   const navigateToEvents = () => {
     navigation.navigate('EventScreen');
   };
+
   return (
     <SafeAreaView style={styles.backgroundStyle}>
       <View>
