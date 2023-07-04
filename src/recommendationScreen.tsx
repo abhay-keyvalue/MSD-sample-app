@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import {
   ActivityIndicator,
   Image,
@@ -78,11 +78,11 @@ const RecommendationScreen = () => {
     getRecommendationByStrategy('Similar Products - 27June', requestParams, pageCorrelationId);
   };
 
-  const renderRecommendations = useMemo(() => {
+  const renderRecommendations = useCallback((recommendationsData) => {
     return (
       <ScrollView horizontal>
-        {recommendations?.data?.length > 0 &&
-          recommendations?.data[0].data?.map((item: any) => (
+        {recommendationsData?.length > 0 &&
+          recommendationsData[0].data?.map((item: any) => (
             <View key={item?.variant_id} style={styles.productCard}>
               <View>
                 <Image
@@ -120,15 +120,17 @@ const RecommendationScreen = () => {
           onPress={getRecommendationPage}
           buttonText={'Get getRecommendation by page'}
         />
+        {renderRecommendations(recommendations?.data?.recommendationsByPage)}
         <ButtonPrimary
           onPress={getRecommendationModule}
           buttonText={'Get getRecommendation by module'}
         />
+        {renderRecommendations(recommendations?.data?.recommendationsByModule)}
         <ButtonPrimary
           onPress={getRecommendationStrategy}
           buttonText={'Get getRecommendation by strategy'}
         />
-        {renderRecommendations}
+        {renderRecommendations(recommendations?.data?.recommendationsByStrategy)}
       </ScrollView>
     </SafeAreaView>
   );
@@ -196,3 +198,4 @@ const styles = StyleSheet.create({
 });
 
 export default RecommendationScreen;
+
