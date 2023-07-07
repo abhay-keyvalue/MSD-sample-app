@@ -15,13 +15,13 @@ import ButtonPrimary from './buttonPrimary';
 const RecommendationScreen = () => {
   const {
     recommendations,
-    getRecommendationByStrategy,
-    getRecommendationByModule,
-    getRecommendationByPage,
+    getRecommendationsByStrategy,
+    getRecommendationsByModule,
+    getRecommendationsByPage,
   } = useRecommendations();
 
   const pageCorrelationId = '8504354e-3801-49a3-8200-5681e769fa67';
-  const getRecommendationPage = () => {
+  const getRecommendationsPage = () => {
     const requestParams = {
     "catalogs": {
         "3089e3d3ba": {
@@ -37,10 +37,10 @@ const RecommendationScreen = () => {
         }
     }
     };
-    getRecommendationByPage('PDP', requestParams, pageCorrelationId);
+    getRecommendationsByPage('PDP', requestParams, pageCorrelationId);
   };
 
-  const getRecommendationModule = () => {
+  const getRecommendationsModule = () => {
     const requestParams = {
       "catalogs": {
         "427e26dbfa": {
@@ -56,10 +56,10 @@ const RecommendationScreen = () => {
         }
     }
     };
-    getRecommendationByModule('Similar Products Module - 27 June', requestParams, pageCorrelationId);
+    getRecommendationsByModule('Similar Products Module - 27 June', requestParams, pageCorrelationId);
   };
 
-  const getRecommendationStrategy = () => {
+  const getRecommendationsStrategy = () => {
     const requestParams = {
       "catalogs": {
         "427e26dbfa": {
@@ -75,7 +75,7 @@ const RecommendationScreen = () => {
         }
     }
     };
-    getRecommendationByStrategy('Similar Products - 27June', requestParams, pageCorrelationId);
+    getRecommendationsByStrategy('Similar Products - 27June', requestParams, pageCorrelationId);
   };
 
   const renderRecommendations = useCallback((recommendationsData) => {
@@ -114,19 +114,19 @@ const RecommendationScreen = () => {
         contentInsetAdjustmentBehavior="automatic"
         style={styles.backgroundStyle}>
         <ButtonPrimary
-          onPress={getRecommendationPage}
+          onPress={getRecommendationsPage}
           buttonText={'Get getRecommendation by page'}
         />
         {recommendations.isLoading.isRecommendationsByPageLoading && renderLoader()}
         {renderRecommendations(recommendations?.data?.recommendationsByPage)}
         <ButtonPrimary
-          onPress={getRecommendationModule}
+          onPress={getRecommendationsModule}
           buttonText={'Get getRecommendation by module'}
         />
         {recommendations.isLoading.isRecommendationsByModuleLoading && renderLoader()}
         {renderRecommendations(recommendations?.data?.recommendationsByModule)}
         <ButtonPrimary
-          onPress={getRecommendationStrategy}
+          onPress={getRecommendationsStrategy}
           buttonText={'Get getRecommendation by strategy'}
         />
         {recommendations.isLoading.isRecommendationsByStrategyLoading && renderLoader()}

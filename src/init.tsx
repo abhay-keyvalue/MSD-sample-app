@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {SafeAreaView, StyleSheet, Text, TextInput, View} from 'react-native';
-import {init, setUser} from 'sample-sdk-7000';
+import {initialize, setUser} from 'sample-sdk-7000';
 
 import ButtonPrimary from './buttonPrimary';
 
@@ -27,7 +27,7 @@ const Init = () => {
   };
 
   const handleInit = () => {
-    init({token: apiToken, baseUrl, loggingEnabled: true});
+    initialize({token: apiToken, baseUrl, loggingEnabled: true});
   };
 
   const handleSetUser = () => {
