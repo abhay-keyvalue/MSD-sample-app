@@ -82,8 +82,8 @@ const RecommendationScreen = () => {
     return (
       <ScrollView horizontal>
         {recommendationsData?.length > 0 &&
-          recommendationsData[0].data?.map((item: any) => (
-            <View key={item?.variant_id} style={styles.productCard}>
+          recommendationsData[0].data?.map((item: any, index: number) => (
+            <View key={index} style={styles.productCard}>
               <View>
                 <Image
                   style={styles.productImage}
